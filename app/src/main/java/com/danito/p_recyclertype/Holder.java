@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 class Holder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    ImageView imageView, imageView1, imageView2, imageView3;
-    Button bShare, bExplore;
-    TextView textView, textViewL;
+    private ImageView imageView, imageView1, imageView2, imageView3;
+    private Button bShare, bExplore;
+    private TextView textView, textViewL;
     private View.OnClickListener imageClickListener;
 
     public Holder(View v) {
@@ -42,19 +42,15 @@ class Holder extends RecyclerView.ViewHolder implements View.OnClickListener {
     public void bind(Dato dato) {
         switch (dato.getTipo()) {
             case MainActivity.TYPE_ITEM_1:
-                imageView.setImageBitmap(dato.getFoto());
-                textView.setText(dato.getTextoCorto());
                 break;
             case MainActivity.TYPE_ITEM_2:
-                imageView.setImageBitmap(dato.getFoto());
-                textView.setText(dato.getTextoCorto());
                 break;
             case MainActivity.TYPE_ITEM_3:
-                imageView.setImageBitmap(dato.getFoto());
-                textView.setText(dato.getTextoCorto());
                 textViewL.setText(dato.getTextoLargo());
                 break;
         }
+        imageView.setImageBitmap(dato.getFoto());
+        textView.setText(dato.getTextoCorto());
     }
 
     public void setImageClickListener(View.OnClickListener listener) {
